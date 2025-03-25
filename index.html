@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕰️ Horloge</title>
+    <link rel="stylesheet" href="style.css?v=31">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="default-mode">
+    <div class="menu-container">
+        <span id="selected-city" class="city-text">🇫🇷 Paris +1</span>
+        <span class="menu-btn">🔽</span>
+        <ul class="menu">
+            <li onclick="updateClockForCity('Pacific/Pago_Pago', 'GMT-11', this)">🇦🇸 Pago Pago -11</li>
+            <li onclick="updateClockForCity('Pacific/Honolulu', 'GMT-10', this)">🇺🇸 Honolulu -10</li>
+            <li onclick="updateClockForCity('America/Vancouver', 'GMT-8', this)">🇨🇦 Vancouver -8</li>
+            <li onclick="updateClockForCity('America/Mexico_City', 'GMT-6', this)">🇲🇽 Mexico -6</li>
+            <li onclick="updateClockForCity('America/Argentina/Buenos_Aires', 'GMT-3', this)">🇦🇷 Buenos Aires -3</li>
+            <li onclick="updateClockForCity('Europe/London', 'GMT+0', this)">🇬🇧 Londres +0</li>
+            <li onclick="updateClockForCity('Europe/Paris', 'GMT+1', this)">🇫🇷 Paris +1</li>
+            <li onclick="updateClockForCity('Africa/Cairo', 'GMT+2', this)">🇪🇬 Le Caire +2</li>
+            <li onclick="updateClockForCity('Europe/Moscow', 'GMT+3', this)">🇷🇺 Moscou +3</li>
+            <li onclick="updateClockForCity('Asia/Dubai', 'GMT+4', this)">🇦🇪 Dubaï +4</li>
+            <li onclick="updateClockForCity('Asia/Karachi', 'GMT+5', this)">🇵🇰 Karachi +5</li>
+            <li onclick="updateClockForCity('Asia/Bangkok', 'GMT+7', this)">🇹🇭 Bangkok +7</li>
+            <li onclick="updateClockForCity('Asia/Shanghai', 'GMT+8', this)">🇨🇳 Beijing +8</li>
+            <li onclick="updateClockForCity('Asia/Seoul', 'GMT+9', this)">🇰🇷 Séoul +9</li>
+            <li onclick="updateClockForCity('Australia/Sydney', 'GMT+10', this)">🇦🇺 Sydney +10</li>
+            <li onclick="updateClockForCity('Pacific/Fiji', 'GMT+12', this)">🇫🇯 Suva +12</li>
+            <li onclick="updateClockForCity('Pacific/Apia', 'GMT+13', this)">🇼🇸 Apia +13</li>
+            <li onclick="updateClockForCity('Pacific/Kiritimati', 'GMT+14', this)">🇰🇮 Kiritimati +14</li>
+        </ul>
+    </div>
+
+    <div class="clock-container">
+        <div id="clock-wrapper">
+            <span id="clock">00:00:00</span>
+            <span id="timezone">(GMT+1)</span>
+        </div>
+        <div id="date">Chargement...</div>
+    </div>
+
+    <div class="theme-switcher">
+        <span class="emoji" id="theme-toggle"></span>
+        <div class="theme-menu">
+            <span class="emoji theme-option" onclick="switchTheme(this)"></span>
+            <span class="emoji theme-option" onclick="switchTheme(this)"></span>
+        </div>
+    </div>
+
+    <script src="script.js?v=21" defer></script>
+</body>
+</html>

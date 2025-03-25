@@ -1,0 +1,209 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Noto Sans MS', monospace;
+    overflow: hidden;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#clock-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#clock {
+    font-size: 12vw;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+#timezone {
+    font-size: 2vw;
+    color: #f39c12;
+    position: absolute;
+    left: calc(58vw + 1vw);
+    top: 50%;
+    transform: translateY(-260%);
+    text-align: left;
+    white-space: nowrap;
+}
+
+#date {
+    font-size: 3vw;
+    margin-top: 15px;
+}
+
+.default-mode {
+    background-color: #111017;
+    color: white;
+}
+
+.dark-mode {
+    background-color: #000;
+    color: white;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #323853;
+}
+
+.menu-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#selected-city {
+    color: white;
+    font-weight: bold;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 200px;
+    text-align: left;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1000;
+    transition: opacity 0.8s ease, max-height 0.8s ease;
+}
+
+.menu-container.active .menu {
+    opacity: 1;
+    max-height: 840px;
+    display: block;
+}
+
+.menu li {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu li.selected {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.default-mode .menu {
+    background-color: #302f34;
+    color: white;
+}
+
+.dark-mode .menu {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.light-mode .menu {
+    background-color: #e5e5e5;
+    color: #323853;
+}
+
+.light-mode #selected-city,
+.light-mode .menu li {
+    color: #111017;
+}
+
+.light-mode .menu li.selected {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.theme-menu {
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s;
+    pointer-events: none;
+}
+
+.theme-switcher.active .theme-menu {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.emoji {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    font-family: 'Segoe UI Emoji', 'Twemoji', sans-serif;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    #timezone {
+        font-size: 4vw;
+        left: 50%;
+        transform: translateX(-50%) translateY(-280%);
+        text-align: center;
+    }
+
+    .theme-switcher .theme-menu {
+        display: none;
+    }
+
+    .theme-switcher.active .theme-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    #timezone {
+        font-size: 4vw;
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+    }
+}
